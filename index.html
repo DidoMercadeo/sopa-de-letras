@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sopa de letras</title>
+  <link rel="icon" href="img/dido-circular.png"/>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+<section id="caja-0">
+<H1>COMUNICACIÓN INTERNA</H1>
+</section>
+
+<section id="ins">
+  <div>
+    <div id="modal_container" class="modal-container">
+      <div class="modal">
+        <h1>INSTRUCCIONES</h1>
+        <p>Objetivo: Encuentra todas las palabras en el menor tiempo posible.
+            <p>Controles: Utiliza el tactil de tu celular o mouse en tu computador y manten pulsado sobre la pantalla siguiendo las palabras.</p>
+            <p>Fin del juego: Cuando termines de encontrar todas las palabras, dale click al botón de la parte inferior y comprueba cada una de las palabras.</p>
+
+            ¡Diviértete jugando y trata de encontrar todas las palabras!</p>
+      </div>
+    </div>
+</div>
+</section>
+
+<section id="caja-1">
+<div id='puzzle'></div>
+</section>
+
+<section id="caja-2">
+<div id='words'></div>
+</section>
+
+<section id="caja-3">
+<div><button id='solve'>Comprueba tus respuestas</button></div>
+</section>
+
+
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+<script type="text/javascript" src="wordfind.js"></script> 
+<script type="text/javascript" src="wordfindgame.js"></script> 
+<script>
+
+  var words = ['saludocupacional', 'habitoseguro', 'accidentes', 'incidentes',
+               'acosolaboral', 'representantes', 'suplentes', 'convivencialaboral',
+               'pausasactivas', 'comite', 'copasst', 'practicasaludable'];
+
+  // start a word find game
+  var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+
+  $('#solve').click( function() {
+    wordfindgame.solve(gamePuzzle, words);
+  });
+
+  // create just a puzzle, without filling in the blanks and print to console
+  var puzzle = wordfind.newPuzzle(
+    words, 
+    {height: 18, width:18, fillBlanks: false}
+  );
+  wordfind.print(puzzle);
+
+</script>
+</body>
+</html>
